@@ -15,12 +15,12 @@ void DFS(int start)
     cout<<start<<" ";
 
     //Repeating step
-    int x = STK.top();
+    
     while(!STK.empty())
     {
+    	int x = STK.top();
         for(int j = 0; j < graph[x].size(); j++)
         {
-            x = STK.top();
             int nd = graph[x][j];
             if(visit[nd] == 0)
             {
@@ -28,6 +28,7 @@ void DFS(int start)
                 STK.push(nd);
                 cout<<nd<<" ";
                 j = 0;
+                x = STK.top();
             }
         }
         STK.pop();
